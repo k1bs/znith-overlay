@@ -1,0 +1,8 @@
+{
+  "name": "znith-overlay",
+  "version": "0.0.1",
+  "description": "CSGO Gamestate Integration server and React overlay.",
+  "main": "index.js",
+  "author": "Alex Kibler (alex@alex-kibler.com)",
+  "license": "MIT"
+}
