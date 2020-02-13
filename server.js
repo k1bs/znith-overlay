@@ -25,7 +25,7 @@ client.on('connection', (socket) => {
 
 app.post('/gsi', (req, res) => {
   req.io.emit('fromServer', 'new message!');
-  res.status(200).send('yup');
+  res.status(200).send(req.body);
 });
 
 app.all('*', (req, res) => {
