@@ -3,11 +3,13 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const logger = require('morgan');
 
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 
+app.use(logger('dev'));
 app.use(bodyParser.json());
 const client = io.of('/client');
 
@@ -24,8 +26,8 @@ client.on('connection', (socket) => {
 });
 
 app.post('/gsi', (req, res) => {
-  req.io.emit('fromServer', 'new message!');
-  res.status(200).send(req.body);
+  req.io.emit('fromServer', req.body);
+  res.status(200).send('ok');
 });
 
 app.all('*', (req, res) => {
